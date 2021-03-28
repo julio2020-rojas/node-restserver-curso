@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
+const mongoose = require('mongoose');
+
+
 // midleware
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -11,35 +14,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.get('/usuario', function(req, res) {
-    res.json('Hello get');
-});
-// crear nuevos registros
-app.post('/usuario', function(req, res) {
-    let body = req.body;
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            mensaje: 'el nombre es necesario'
-        });
-    } else {
-        res.json({
-            Persona: body
-        });
-    }
+app.use(require('./routes/usuario'));
 
-});
-//actualiza registros
-app.put('/usuario/:id', function(req, res) {
-    let id = req.params.id;
-    res.json({
-        id
+/*
+await mongoose.connect('mongodb://localhost/my_database', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});*/
+
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
+    (err, res) => {
+        if (err) throw (err);
+        console.log('base de datos ONLINE');
     });
-});
-// no se borra el registro fisico sino que se cambia la condicion del registro: no visible
-app.delete('/usuario', function(req, res) {
-    res.json('Hello delete');
-});
 
 app.listen(process.env.PORT, () => {
     console.log('escuchando puerto ', process.env.PORT);
