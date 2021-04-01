@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'dev') {
 } else {
     // urlDB = process.env.MONGOBD;
     //urlDB = 'mongodb://julio2021:talent002020@cluster0-shard-00-00.6u4qo.mongodb.net:27017/cafe';
-    urlDB = `mongodb://{USER}:{PASSWORD}@cluster0-shard-00-00.6u4qo.mongodb.net:27017/cafe?ssl=true&replicaSet=atlas-5vf06m-shard-0&authSource=admin&retryWrites=true&w=majority`;
+    urlDB = `mongodb://${process.env.USER}:${process.env.PASSWORD}@cluster0-shard-00-00.6u4qo.mongodb.net:27017/cafe?ssl=true&replicaSet=atlas-5vf06m-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
 }
 
