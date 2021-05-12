@@ -14,15 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.use(require('./routes/usuario'));
+// configuracion global de rutas
+app.use(require('./routes/index'));
 
 /*
-await mongoose.connect('mongodb://localhost/my_database', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-});*/
+app.use(require('./routes/usuario'));
+app.use(require('./routes/login'));*/
+
 
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
     (err, res) => {
