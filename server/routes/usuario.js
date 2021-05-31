@@ -71,7 +71,7 @@ app.post('/usuario', [verificaToken, verificaAdmin_Role], function(req, res) {
 //actualiza registros
 app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
     let id = req.params.id;
-    let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
+    let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']); // solo usa los parametros de la lista entre corchetes
     Usuario.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, usuarioDB) => {
         if (err) {
             return res.status(400).json({

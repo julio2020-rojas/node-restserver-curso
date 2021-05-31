@@ -71,7 +71,7 @@ async function verify(token) {
 
 }
 
-app.post('/google', async(req, res) => {
+app.post('/google', async(req, res) => { // con postman solo colocamos el idtoken generado por login de google
     let token = req.body.idtoken;
     let googleUser = await verify(token) // verificamos el token si es valido tenemos toda la informacion del usuario 
         .catch(e => { // autenticado por google 
