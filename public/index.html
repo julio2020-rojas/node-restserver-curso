@@ -12,8 +12,9 @@
 </head>
 
 <body>
-
-    <img src="http://localhost:3000/imagen/usuarios/605446d8be7b643b9cffe46b-891.jpg" alt="">
+    <h1>hola julio</h1>
+    <img src="http://localhost:3000/imagen/usuarios/605446e7be7b643b9cffe46c-92.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJlc3RhZG8iOnRydWUsImdvb2dsZSI6ZmFsc2UsIl9pZCI6IjYwNTQ0NmQ4YmU3YjY0M2I5Y2ZmZTQ2YiIsIm5vbWJyZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJfX3YiOjAsImltZyI6IjYwNTQ0NmQ4YmU3YjY0M2I5Y2ZmZTQ2Yi04OTEuanBnIn0sImlhdCI6MTYyODkzNzczOSwiZXhwIjoxNjI5MTEwNTM5fQ.17W22W63xMwCfqt5tqQDmdYnaXO0uYo4fHa-y9uXPQc"
+        alt="">
 
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <a href="#" onclick="signOut();">Sign out</a>
@@ -34,7 +35,7 @@
 
             var id_token = googleUser.getAuthResponse().id_token;
 
-            console.log(id_token);
+            console.log('valor del token:' + id_token);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/google');

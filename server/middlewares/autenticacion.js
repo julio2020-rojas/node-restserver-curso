@@ -34,7 +34,7 @@ let verificaAdmin_Role = (req, res, next) => {
  */
 
 let verificaTokenImg = (req, res, next) => {
-    let token = req.query.token;
+    let token = req.query.token; // verificamos el token por el query , navegador
     jwt.verify(token, process.env.SEED, (err, decoded) => {
         if (err) {
             return res.status(401).json({
