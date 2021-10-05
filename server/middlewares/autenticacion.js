@@ -6,8 +6,9 @@ let verificaToken = (req, res, next) => {
         if (err) {
             return res.status(401).json({
                 ok: false,
+                token: token,
                 err: {
-                    message: 'Token no valido'
+                    message: 'Token no valido... aqui estoy'
                 }
             });
         }
